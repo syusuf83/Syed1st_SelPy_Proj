@@ -3,10 +3,15 @@ from selenium.webdriver.common.by import By
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
+        self.URL = "https://www.saucedemo.com/"  # Define the login page URL
         # Define locators
         self.EMAIL_FIELD = (By.ID, "user-name")  # Locator for the username/email field
         self.PASS_FIELD = (By.ID, "password")   # Locator for the password field
         self.LOGIN_BUTTON = (By.ID, "login-button")  # Locator for the login button
+
+    def open_page(self):
+        """Open the login page."""
+        self.driver.get(self.URL)
 
     def enter_email(self, email):
         """Enter email into the email field."""
